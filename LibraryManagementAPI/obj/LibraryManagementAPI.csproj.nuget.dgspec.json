@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Asp.Net\\LibraryManagementAPI\\LibraryManagementAPI\\LibraryManagementAPI.csproj": {}
+    "D:\\AssetManagement\\AssetManagement\\LibraryManagementAPI\\LibraryManagementAPI.csproj": {}
   },
   "projects": {
-    "F:\\Asp.Net\\LibraryManagementAPI\\LibraryManagementAPI\\LibraryManagementAPI.csproj": {
+    "D:\\AssetManagement\\AssetManagement\\LibraryManagementAPI\\LibraryManagementAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Asp.Net\\LibraryManagementAPI\\LibraryManagementAPI\\LibraryManagementAPI.csproj",
+        "projectUniqueName": "D:\\AssetManagement\\AssetManagement\\LibraryManagementAPI\\LibraryManagementAPI.csproj",
         "projectName": "LibraryManagementAPI",
-        "projectPath": "F:\\Asp.Net\\LibraryManagementAPI\\LibraryManagementAPI\\LibraryManagementAPI.csproj",
-        "packagesPath": "C:\\Users\\Adithya_10010\\.nuget\\packages\\",
-        "outputPath": "F:\\Asp.Net\\LibraryManagementAPI\\LibraryManagementAPI\\obj\\",
+        "projectPath": "D:\\AssetManagement\\AssetManagement\\LibraryManagementAPI\\LibraryManagementAPI.csproj",
+        "packagesPath": "C:\\Users\\Sampathkumar_10528\\.nuget\\packages\\",
+        "outputPath": "D:\\AssetManagement\\AssetManagement\\LibraryManagementAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Adithya_10010\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sampathkumar_10528\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,9 +44,25 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Razor.Design": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
             }
           },
           "imports": [
@@ -63,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
         }
       }
     }
