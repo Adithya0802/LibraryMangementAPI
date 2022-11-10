@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,7 +28,7 @@ namespace LibraryManagementAPI.LibraryManagement
                 sqlParameters.Add(new KeyValuePair<string, string>("@newpassword ", entity.newpassword));
                 sqlParameters.Add(new KeyValuePair<string, string>("@confirmpassword ", entity.confirmpassword));
 
-                var result = manageSQL.InsertData("Insertintosettings", sqlParameters);
+                var result = manageSQL.InsertData("insertintosetting", sqlParameters);
                 return JsonConvert.SerializeObject(result);
             }
             catch (Exception ex)
@@ -36,6 +37,15 @@ namespace LibraryManagementAPI.LibraryManagement
             }
             return "false";
         }
+        [HttpGet]
+        public string Get()
+        {
+            ManageSQLConnection manageSQL = new ManageSQLConnection();
+            DataSet ds = new DataSet();
+            ds = manageSQL.GetDataSetValues("Getset");
+            return JsonConvert.SerializeObject(ds.Tables[0]);
+        }
+
     }
     public class SettingEntity
     {
