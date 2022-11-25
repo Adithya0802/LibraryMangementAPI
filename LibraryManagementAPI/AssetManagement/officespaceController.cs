@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -32,6 +33,14 @@ namespace LibraryManagementAPI.AssetManagement
                 //AuditLog.WriteError(ex.Message);
             }
             return "false";
+        }
+        [HttpGet]
+        public string Get()
+        {
+            ManageSQLConnection manageSQL = new ManageSQLConnection();
+            DataSet ds = new DataSet();
+            ds = manageSQL.GetDataSetValues("Getofficespace");
+            return JsonConvert.SerializeObject(ds.Tables[0]);
         }
     }
     public class officespaceEntity

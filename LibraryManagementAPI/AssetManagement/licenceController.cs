@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,16 +22,25 @@ namespace LibraryManagementAPI.AssetManagement
                 sqlParameters.Add(new KeyValuePair<string, string>("@sno", Convert.ToString(entity.sno)));
                 sqlParameters.Add(new KeyValuePair<string, string>("@name", entity.name));
                 sqlParameters.Add(new KeyValuePair<string, string>("@productkey", entity.productkey));
-                sqlParameters.Add(new KeyValuePair<string, string>("@machinename", entity.machinename));
-                sqlParameters.Add(new KeyValuePair<string, string>("@oslastusers", entity.oslastusers));
-                var result = manageSQL.InsertData("Insertlicence", sqlParameters);
+                sqlParameters.Add(new KeyValuePair<string, string>("@oscurrentuser", entity.oscurrentuser));
+                sqlParameters.Add(new KeyValuePair<string, string>("@oslastuser", entity.oslastuser));
+                var result = manageSQL.InsertData("Insertlicense", sqlParameters);
                 return JsonConvert.SerializeObject(result);
             }
             catch (Exception ex)
             {
                 //AuditLog.WriteError(ex.Message);
+                Console.WriteLine(ex.Message);
             }
             return "false";
+        }
+        [HttpGet]
+        public string Get()
+        {
+            ManageSQLConnection manageSQL = new ManageSQLConnection();
+            DataSet ds = new DataSet();
+            ds = manageSQL.GetDataSetValues("Getlicense");
+            return JsonConvert.SerializeObject(ds.Tables[0]);
         }
     }
     public class licenceEntity
@@ -38,8 +48,8 @@ namespace LibraryManagementAPI.AssetManagement
         public int sno { get; set; }
         public string name { get; set; }
         public string productkey { get; set; }
-        public string machinename { get; set; }
-        public string oslastusers { get; set; }
+        public string oscurrentuser { get; set; }
+        public string oslastuser { get; set; }
 
 
     }
